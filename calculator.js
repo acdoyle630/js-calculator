@@ -1,3 +1,4 @@
+
 /**
  * Declare a function named `calculatorModule`
  * this function will have two private variables declared inside of it.
@@ -5,6 +6,72 @@
  * @variable PRIVATE { Number } `total`
  * @return {object} `calculator` object that can be used
  */
+var calculatorModule = (function() {
+    var calculator = {};
+    var memory = 0;
+    var total = 0;
+
+    
+    calculator.load = function (x) {
+      if (typeof x !== 'number') {
+        throw new Error ('wrong data type');
+      }
+      total = x;
+      return total;
+    };
+    calculator.getTotal = function () {
+      return total;
+    };
+    calculator.add = function(x) {
+      if (typeof x !== 'number') {
+        throw new Error ('wrong data type');
+      }
+      total += x;
+      return total;
+    };
+    calculator.subtract = function (x) {
+      if (typeof x !== 'number') {
+        throw new Error ('wrong data type');
+      }
+      total -= x;
+      return total;
+    };
+    calculator.multiply = function (x) {
+      if (typeof x !== 'number') {
+        throw new Error ('wrong datat type');
+      }
+      total *= x;
+      return total;
+    };
+    calculator.divide = function (x) {
+      if(typeof x !== 'number') {
+        throw new Error ('wrong data type');
+      }
+      total /= x;
+      return total;
+    };
+    calculator.recallMemory = function() {
+      memory = memory;
+      return memory;
+    };
+    calculator.saveMemory = function() {
+      memory = total;
+      return memory;
+    };
+    calculator.clearMemory = function () {
+      memory = 0;
+      return memory;
+    };
+
+    
+
+    return calculator;
+
+
+
+
+});
+
 
 
   /**
