@@ -1,3 +1,5 @@
+/*jshint esversion: 6*/
+
 /**
  * Declare a function named `calculatorModule`
  * this function will have two private variables declared inside of it.
@@ -6,12 +8,72 @@
  * @return {object} `calculator` object that can be used
  */
 
+module.exports = (function() {
+    var calculator = {};
+    var memory = 0;
+    var total = 0;
 
-  /**
-   * sets the `total` to the number passed in
-   * @param  { Number } x
-   * @return { Number }    current total
-   */
+
+    calculator.load = function (x) {
+      if (typeof x !== 'number') {
+        throw new Error ('wrong data type');
+      }
+      total = x;
+      return total;
+    };
+    calculator.getTotal = function () {
+      return total;
+    };
+    calculator.add = function(x) {
+      if (typeof x !== 'number') {
+        throw new Error ('wrong data type');
+      }
+      total += x;
+      return total;
+    };
+    calculator.subtract = function (x) {
+      if (typeof x !== 'number') {
+        throw new Error ('wrong data type');
+      }
+      total -= x;
+      return total;
+    };
+    calculator.multiply = function (x) {
+      if (typeof x !== 'number') {
+        throw new Error ('wrong datat type');
+      }
+      total *= x;
+      return total;
+    };
+    calculator.divide = function (x) {
+      if(typeof x !== 'number') {
+        throw new Error ('wrong data type');
+      }
+      total /= x;
+      return total;
+    };
+    calculator.recallMemory = function() {
+      memory = memory;
+      return memory;
+    };
+    calculator.saveMemory = function() {
+      memory = total;
+      return memory;
+    };
+    calculator.clearMemory = function () {
+      memory = 0;
+      return memory;
+    };
+
+
+
+    return calculator;
+
+
+
+
+});
+
 
 
   /**
@@ -59,7 +121,4 @@
    * Clear the value stored at `memory`
    */
 
-  /**
-   * Validation
-   */
 
